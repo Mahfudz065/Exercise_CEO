@@ -39,8 +39,7 @@ namespace exercisepabd_1
                                         Console.WriteLine("\nMenu");
                                         Console.WriteLine("1. Melihat Seluruh Data");
                                         Console.WriteLine("2. Tambah Data");
-                                        Console.WriteLine("3. Mencari Data");
-                                        Console.WriteLine("4. Keluar");
+                                        Console.WriteLine("3. Keluar");
                                         Console.Write("\nEnter your choice (1-3): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
@@ -58,15 +57,18 @@ namespace exercisepabd_1
                                                     Console.Clear();
                                                     Console.WriteLine("INPUT DATA BUS DITERMINAL\n");
                                                     Console.WriteLine("Masukkan  ID bus :");
-                                                    string NIM = Console.ReadLine();
+                                                    string ID = Console.ReadLine();
                                                     Console.WriteLine("Masukkan Nama Bus :");
-                                                    string NmaMhs = Console.ReadLine();
+                                                    string Nmabus = Console.ReadLine();
                                                     Console.WriteLine("Masukkan Type Bus :");
-                                                    string Almt = Console.ReadLine();
-                                                    
+                                                    string tpe = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Jenis Kelamin (L/P) :");
+                                                    string jk = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan No Telepon :");
+                                                    string notlpn = Console.ReadLine();
                                                     try
                                                     {
-                                                        pr.insert(NIM, NmaMhs, Almt, jk, notlpn, conn);
+                                                        pr.insert(ID, Nmabus, tpe, jk, notlpn, conn);
                                                     }
                                                     catch
                                                     {
