@@ -39,7 +39,8 @@ namespace exercisepabd_1
                                         Console.WriteLine("\nMenu");
                                         Console.WriteLine("1. Melihat Seluruh Data");
                                         Console.WriteLine("2. Tambah Data");
-                                        Console.WriteLine("3. Keluar");
+                                        Console.WriteLine("3. Mencari Data");
+                                        Console.WriteLine("4. Keluar");
                                         Console.Write("\nEnter your choice (1-3): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
