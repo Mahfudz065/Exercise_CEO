@@ -15,8 +15,6 @@ namespace exercisepabd_1
                     Console.WriteLine("Koneksi Ke Database\n");
                     Console.WriteLine("Masukkan User ID :");
                     string user = Console.ReadLine();
-                    Console.WriteLine("Masukkan Password :");
-                    string pass = Console.ReadLine();
                     Console.WriteLine("Masukkan database tujuan :");
                     string db = Console.ReadLine();
                     Console.Write("\nKetik K untuk Terhubung ke Database: ");
@@ -26,10 +24,8 @@ namespace exercisepabd_1
                         case 'K':
                             {
                                 SqlConnection conn = null;
-                                string strKoneksi = "Data source = DESKTOP-LAFVQ8T\\MAHFUDZSIDDIQ; " +
-                                    "initial catalog = {0}; " +
-                                    "User ID = {1}; password = {2}";
-                                conn = new SqlConnection(string.Format(strKoneksi, db, user, pass));
+                                string strKoneksi = "Data source = DESKTOP-LAFVQ8T\\MAHFUDZSIDDIQ; ";
+                                conn = new SqlConnection(string.Format(strKoneksi, db));
                                 conn.Open();
                                 Console.Clear();
                                 while (true)
@@ -114,7 +110,7 @@ namespace exercisepabd_1
 
         public void baca(SqlConnection con)
         {
-            SqlCommand cmd = new SqlCommand("Select * From HRD.Mahasiswa", con);
+            SqlCommand cmd = new SqlCommand("Select * From Bus", con);
             SqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {
@@ -126,19 +122,19 @@ namespace exercisepabd_1
             }
             r.Close();
         }
-        public void insert(string NIM, string NmaMhs, string Almt, string jk, string notlpn,
+        public void insert(string ID, string Nmabus, string tpe, string jk, string notlpn,
             SqlConnection con)
         {
 
             string str = "";
-            str = "insert into HRD.MAHASISWA (NIM,NamaMhs,AlamatMhs,sex,PhoneMhs)"
-                    + " values(@nim,@nma,@alamat,@JK,@Phn)";
+            str = "insert into  Bus (ID,NamaBus,TypeBus,sex,PhoneMhs)"
+                    + " values(@ID,@nma,@Type,@JK,@Phn)";
             SqlCommand cmd = new SqlCommand(str, con);
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("nim", NIM));
-            cmd.Parameters.Add(new SqlParameter("nma", NmaMhs));
-            cmd.Parameters.Add(new SqlParameter("alamat", Almt));
+            cmd.Parameters.Add(new SqlParameter("nim", ID));
+            cmd.Parameters.Add(new SqlParameter("nma", Nmabus));
+            cmd.Parameters.Add(new SqlParameter("alamat", tpe));
             cmd.Parameters.Add(new SqlParameter("JK", jk));
             cmd.Parameters.Add(new SqlParameter("Phn", notlpn));
             cmd.ExecuteNonQuery();
